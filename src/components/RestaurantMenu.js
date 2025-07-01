@@ -108,6 +108,7 @@ const RestaurantMenu = () => {
             <>
               <h1 className="text-2xl font-bold mb-2">{restaurantInfo.name}</h1>
               <p className="text-gray-600 mb-1">{restaurantInfo.cuisines?.join(", ")}</p>
+              <p># FOOD TIME ACTIVATED...</p>
             </>
           )}
 

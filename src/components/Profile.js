@@ -15,11 +15,16 @@ const Profile = () => {
     }
   }, []);
 
+  const bgUrl = "https://images.unsplash.com/photo-1504674900247-0877df9cc836";
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md relative">
+    <div
+      className="min-h-screen flex items-center justify-center bg-cover bg-center px-4"
+      style={{ backgroundImage: `url(${bgUrl})` }}
+    >
+      <div className="bg-white bg-opacity-90 p-8 rounded shadow-md w-full max-w-md relative">
         
-        {/* Back to Home Button */}
+        {/* Back Button */}
         <button
           onClick={() => navigate("/home")}
           className="absolute top-4 left-4 text-sm bg-gray-200 px-3 py-1 rounded shadow hover:bg-gray-300"

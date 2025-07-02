@@ -23,12 +23,9 @@ const EditProfile = () => {
   const handleSave = () => {
     localStorage.setItem("currentUser", JSON.stringify(form));
 
-    // Update user in the full users array too
     const users = JSON.parse(localStorage.getItem("users")) || [];
     const updatedUsers = users.map((user) =>
-      user.username === form.username
-        ? { ...user, ...form } // Keep password
-        : user
+      user.username === form.username ? { ...user, ...form } : user
     );
     localStorage.setItem("users", JSON.stringify(updatedUsers));
 
@@ -36,18 +33,22 @@ const EditProfile = () => {
     navigate("/home/profile");
   };
 
+  const bgUrl = "https://images.unsplash.com/photo-1504674900247-0877df9cc836";
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
+    <div
+      className="min-h-screen flex items-center justify-center bg-cover bg-center px-4"
+      style={{ backgroundImage: `url(${bgUrl})` }}
+    >
+      <div className="bg-white bg-opacity-90 p-8 rounded shadow-md w-full max-w-md">
         <h1 className="text-2xl font-bold mb-6 text-center text-blue-600">Edit Profile</h1>
 
         <div className="space-y-4">
           <input
             type="text"
-            placeholder="Username"
             value={form.username}
-            onChange={(e) => setForm({ ...form, username: e.target.value})}
-            className="w-full border p-3 rounded"
+            className="w-full border p-3 rounded bg-gray-100"
+            readOnly
           />
           <input
             type="email"

@@ -13,6 +13,8 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
+import EditProfile from "./components/EditProfile";
+
 
 // Lazy imports
 const About = lazy(() => import("./components/AboutUs"));
@@ -84,6 +86,7 @@ const appRouter = createBrowserRouter([
       { path: "/home/order", element: <Order /> },
       { path: "/home/track", element: <Track /> },
       { path: "/home/profile", element: <Profile /> }, // ✅ Added Profile route
+      { path: "/home/edit-profile", element: <EditProfile /> },
     ],
   },
 ]);

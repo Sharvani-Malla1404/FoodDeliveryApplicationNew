@@ -4,7 +4,16 @@ import { useNavigate } from "react-router-dom";
 import { saveUser } from "../utils/localStorageUtils";
 
 const Register = () => {
-  const [form, setForm] = useState({ username: "", email: "", password: "" });
+  const [form, setForm] = useState({
+    username: "",
+    email: "",
+    password: "",
+    phone: "",
+    address: "",
+    dob: "",
+    gender: ""
+  });
+
   const navigate = useNavigate();
 
   const handleRegister = () => {
@@ -60,6 +69,34 @@ const Register = () => {
             className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
             onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
+          <input
+            type="tel"
+            placeholder="Phone Number"
+            className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+            onChange={(e) => setForm({ ...form, phone: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Address"
+            className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+            onChange={(e) => setForm({ ...form, address: e.target.value })}
+          />
+          <input
+            type="date"
+            placeholder="Date of Birth"
+            className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+            onChange={(e) => setForm({ ...form, dob: e.target.value })}
+          />
+          <select
+            className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+            onChange={(e) => setForm({ ...form, gender: e.target.value })}
+          >
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+
           <button
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded shadow-md transition"
             onClick={handleRegister}

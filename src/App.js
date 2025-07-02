@@ -15,13 +15,15 @@ import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
 
 // Lazy imports
-//const Grocery = lazy(() => import("./components/Grocery"));
 const About = lazy(() => import("./components/AboutUs"));
 
 // ✅ Auth pages
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+
+// ✅ Profile page
+import Profile from "./components/Profile";
 
 // ✅ Context provider
 import { UserContextProvider } from "./utils/UserContext";
@@ -77,15 +79,11 @@ const appRouter = createBrowserRouter([
       { path: "/home/contact", element: <Contact /> },
       { path: "/home/restaurants/:resId", element: <RestaurantMenu /> },
       { path: "/home/cart", element: <Cart /> },
-      { path: "/home/my-orders", element: <MyOrders />},
-      { path: "/home/checkout", element: <Checkout />},
-      { path: "/home/order", element: <Order /> }, // 👈 Make sure this is also /home/order
-      { path: "/home/track", element: <Track />},
-      {
-      path: "order",
-      element: <Order />, // This is your Order.js component
-    },
-
+      { path: "/home/my-orders", element: <MyOrders /> },
+      { path: "/home/checkout", element: <Checkout /> },
+      { path: "/home/order", element: <Order /> },
+      { path: "/home/track", element: <Track /> },
+      { path: "/home/profile", element: <Profile /> }, // ✅ Added Profile route
     ],
   },
 ]);

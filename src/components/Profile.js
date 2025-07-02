@@ -19,7 +19,7 @@ const Profile = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded shadow-md w-full max-w-md relative">
         
-        {/* Back Button */}
+        {/* Back to Home Button */}
         <button
           onClick={() => navigate("/home")}
           className="absolute top-4 left-4 text-sm bg-gray-200 px-3 py-1 rounded shadow hover:bg-gray-300"
@@ -27,8 +27,15 @@ const Profile = () => {
           ← Back to Home
         </button>
 
-        <h1 className="text-2xl font-bold mb-6 text-center text-green-600">User Profile</h1>
+        {/* Edit Profile Button */}
+        <button
+          onClick={() => navigate("/home/edit-profile")}
+          className="absolute top-4 right-4 text-sm bg-blue-200 px-3 py-1 rounded shadow hover:bg-blue-300"
+        >
+          ✏️ Edit Profile
+        </button>
 
+        <h1 className="text-2xl font-bold mb-6 text-center text-green-600">User Profile</h1>
 
         {userDetails ? (
           <>
@@ -40,7 +47,9 @@ const Profile = () => {
             <p className="mb-2 text-lg">🚻 Gender: <strong>{userDetails.gender}</strong></p>
           </>
         ) : (
-          <p className="text-red-500 text-center mt-4">User details not found in local storage.</p>
+          <p className="text-red-500 text-center mt-4">
+            User details not found in local storage.
+          </p>
         )}
       </div>
     </div>

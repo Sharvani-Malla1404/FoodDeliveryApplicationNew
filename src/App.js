@@ -1,3 +1,5 @@
+// App.js
+
 import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
@@ -6,7 +8,7 @@ import Body from "./components/Body";
 import Contact from "./components/Contact";
 import Checkout from "./components/Checkout";
 import Order from "./components/Order";
-import Track from "./components/Track";
+import Track from "./components/Track"; // Track order component
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
@@ -14,7 +16,6 @@ import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
 import EditProfile from "./components/EditProfile";
-
 
 // Lazy imports
 const About = lazy(() => import("./components/AboutUs"));
@@ -84,8 +85,11 @@ const appRouter = createBrowserRouter([
       { path: "/home/my-orders", element: <MyOrders /> },
       { path: "/home/checkout", element: <Checkout /> },
       { path: "/home/order", element: <Order /> },
-      { path: "/home/track", element: <Track /> },
-      { path: "/home/profile", element: <Profile /> }, // ✅ Added Profile route
+
+      // ✅ Updated Track route with dynamic orderId
+      { path: "/home/track/:orderId", element: <Track /> },
+
+      { path: "/home/profile", element: <Profile /> },
       { path: "/home/edit-profile", element: <EditProfile /> },
     ],
   },
